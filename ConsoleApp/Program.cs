@@ -1,4 +1,5 @@
-﻿using System.Reflection.Emit;
+﻿using ConsoleApp;
+using System.Reflection.Emit;
 using System.Text;
 
 
@@ -13,9 +14,9 @@ Console.WriteLine(string.Empty);
 
 Console.WriteLine("-----------------" +
     "\n Format:" +
-    "\n Double digits should not be same. " +
-    "\n non-digits values will generate error." +
-    "\n Only first four characters will be taken into consideration");
+    "\n Only digits are allowed." +
+    "\n All digits should NOT be same." +
+    "\n Only first four characters will be taken into consideration. ");
 
 repeat:
 do
@@ -27,7 +28,8 @@ do
 
     constant = Console.ReadLine();
     digits = constant.Take(4).ToArray();
-
+    
+    //first four characters must be digits
     foreach (char item in digits)
     {
         if (!char.IsDigit(item))
@@ -35,6 +37,12 @@ do
             notdigits.AppendLine($"'{item}' is not a digit.");
         }
     }
+
+    //all digits must not be same e.g. 1111 , 2222
+    if (string.Join("", digits).Replace(string.Join("", digits)[0] + "", "") == "")
+    {
+        notdigits.AppendLine($"All digits cannot be same.");
+    } 
 
     if (notdigits.Length == 0)
     {
@@ -57,11 +65,8 @@ while (!isKaprekarConstant)
     Console.WriteLine($"\nAttempt #{count.ToString()}: ");
     Console.WriteLine("------------");
 
-    Array.Sort(checkDigits);
-    var asc = Convert.ToInt32(string.Join("", checkDigits));
-
-    Array.Reverse(checkDigits);
-    var desc = Convert.ToInt32(string.Join("", checkDigits));
+    var asc = Utilities.Ascending(checkDigits);
+    var desc = Utilities.Descending(checkDigits);
 
     Int32 value = desc - asc;
 
@@ -77,6 +82,11 @@ while (!isKaprekarConstant)
     {
         checkDigits = value.ToString().ToCharArray();
         count++;
+    }
+
+    if (count>=20)
+    {
+        break;
     }
 }
 
