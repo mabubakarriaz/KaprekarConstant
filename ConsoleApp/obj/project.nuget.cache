@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "kIIBRYPg2mBOKdH3hERFQXK9dDqRLtsmV0lPzwP+f4e97HRMjjpE1Z8PVwKvVu8fp3l7nC5T2K/DOJYCSmdLJA==",
+  "dgSpecHash": "Cp21HslKNFaNYWRk/xxcwJZ9ZPb74TJ+Xn9RlI67cu6ZDQ4ePGrbXiOw25LfUz0JuJokF8ce2sd/9sDiTdWXdQ==",
   "success": true,
   "projectFilePath": "C:\\TFS\\github.com\\mabubakarriaz\\KaprekarConstant\\ConsoleApp\\ConsoleApp.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\TK-LPT-752\\.nuget\\packages\\microsoft.visualstudio.azure.containers.tools.targets\\1.17.0\\microsoft.visualstudio.azure.containers.tools.targets.1.17.0.nupkg.sha512"
+  ],
   "logs": []
 }
